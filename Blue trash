@@ -4,7 +4,7 @@ local teams = game:GetService("Teams")
 local user_input_service = game:GetService("UserInputService")
 local run_service = game:GetService("RunService")
 local player = players.LocalPlayer
-local Ray = local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Ray = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Ray:CreateWindow({
    Name = "PNG lock",
