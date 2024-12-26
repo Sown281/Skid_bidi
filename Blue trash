@@ -4,9 +4,9 @@ local teams = game:GetService("Teams")
 local user_input_service = game:GetService("UserInputService")
 local run_service = game:GetService("RunService")
 local player = players.LocalPlayer
-local Ray = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Window = Ray:CreateWindow({
+local Window = Rayfield:CreateWindow({
    Name = "PNG lock",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "Wait an hour",
@@ -126,10 +126,10 @@ local function set_flow(desired_flow)
 end
 
 local maintab = Window:CreateTab("Main", 4483345998)
-maintab:CreateButton
-   Name = "Lock ball",
-   Callback = function()
-      lock_ball = not lock_ball
+maintab:CreateButton({
+    Name = "Lock ball",
+    Callback = function()
+        lock_ball = not lock_ball
         if lock_ball then
             task.spawn(lockb)
         end
@@ -150,6 +150,7 @@ style_tab:CreateButton({
         set_style("Rin")
     end
 })
+
 style_tab:CreateInput({
     Name = "custom style",
     CurrentValue = "",
@@ -228,13 +229,13 @@ Rayfield:Notify({
     },
 })
 
-local notes_tab = window:CreateTab("Notes", 4483345998)
+local notes_tab = Window:CreateTab("Notes", 4483345998)
 notes_tab:CreateSection("Important Notes")
 notes_tab:CreateLabel("where you see custom style that is to get other styles, not only nagi or shidou")
 notes_tab:CreateLabel("also if you got shidou and you want nagi you need to rejoin")
 notes_tab:CreateLabel("this applies with every style")
 
-local credits_tab = window:CreateTab("Credits", 4483345998")
+local credits_tab = Window:CreateTab("Credits", 4483345998)
 credits_tab:CreateSection("Credits")
 credits_tab:CreateLabel("this ui changed to RayField ")
 credits_tab:CreateLabel("credits 52wy on discord")
