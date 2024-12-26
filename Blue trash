@@ -191,6 +191,43 @@ flow_tab:CreateInput({
     end
 })
 
+-- **Thêm Time Tab vào script chính**
+local TimeTab = Window:CreateTab("Real time", "clock")
+local TimeLabel = TimeTab:CreateLabel("Đang lấy giờ...")
+
+-- Hàm lấy giờ Việt Nam chính xác
+local function GetVietnamTime()
+    -- Lấy giờ UTC và điều chỉnh múi giờ
+    local utcTime = os.date("!*t") -- lấy giờ UTC
+    utcTime.hour = utcTime.hour + 7 -- Cộng 7 giờ cho Việt Nam
+    return string.format("Giờ hiện tại: %02d:%02d:%02d", utcTime.hour, utcTime.min, utcTime.sec)
+end
+
+-- Hàm cập nhật giờ
+local function UpdateTime()
+    while wait(1) do
+        local time = GetVietnamTime()
+        TimeLabel:Set(time)
+    end
+end
+
+-- Chạy cập nhật giờ
+task.spawn(UpdateTime)
+
+-- Thông báo hoàn tất
+Rayfield:Notify({
+    Title = "Hoàn tất",
+    Content = "Script đã tích hợp đầy đủ chức năng.",
+    Duration = 15,
+    Image = "check", -- Icon Lucide cho thông báo
+    Actions = { -- Thêm nút nếu cần
+        Ignore = {
+            Name = "OK",
+            Callback = function() end
+        }
+    },
+})
+
 local notes_tab = window:CreateTab("Notes", 4483345998)
 notes_tab:CreateSection("Important Notes")
 notes_tab:CreateLabel("where you see custom style that is to get other styles, not only nagi or shidou")
@@ -201,4 +238,3 @@ local credits_tab = window:CreateTab("Credits", 4483345998")
 credits_tab:CreateSection("Credits")
 credits_tab:CreateLabel("this ui changed to RayField ")
 credits_tab:CreateLabel("credits 52wy on discord")
-
